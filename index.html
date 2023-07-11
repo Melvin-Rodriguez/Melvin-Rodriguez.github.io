@@ -36,14 +36,27 @@
 				<!-- Footer -->
 					<footer id="footer">
 						<!-- <span class="copyright">&copy; Untitled. Design: <a href="http://html5up.net">HTML5 UP</a>.</span> -->
+						<p> Número de visitas: <span id="numero"></span>.</p>
 					</footer>
 
 			</div>
 		</div>
-		<script>
+		<script type="application/javascript">
 			window.onload = function() { document.body.classList.remove('is-preload'); }
 			window.ontouchmove = function() { return false; }
 			window.onorientationchange = function() { document.body.scrollTop = 0; }
+				var visitas = localStorage.getItem("visitas");
+				var contador;	
+				if(!visitas){
+					contador = 0;
+					localStorage.setItem("visitas", contador);
+				} else {
+					contador = localStorage.getItem("visitas");
+					contador++;
+					localStorage.setItem("visitas", contador);
+				}		
+				document.getElementById("numero").innerHTML = contador;
+				}
 		</script>
 	</body>
 </html>
